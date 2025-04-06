@@ -1,5 +1,8 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, Float, String
-engine = create_engine('sqlite:///database.db', echo=True)
+
+
+engine = create_engine('sqlite:///./database.db', echo=True)
+
 meta = MetaData()
 
 stations = Table(
@@ -17,9 +20,9 @@ measures = Table(
     'measures', meta,
     Column('id', Integer, primary_key=True),
     Column('station', String),
-    Column('date', String),     
+    Column('date', String),
     Column('precip', Float),
-    Column('tobs', Float)
+    Column('tobs', Float),
 )
 
 meta.create_all(engine)
